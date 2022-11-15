@@ -1,10 +1,59 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView # テンプレートタグ
-from .forms import AccountForm, AddAccountForm # ユーザーアカウントフォーム
-from django.contrib.auth import authenticate
+from django.views.generic import TemplateView #テンプレートタグ
+from .forms import AccountForm, AddAccountForm #ユーザーアカウントフォーム
+
+# ログイン・ログアウト処理に利用
+from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse
+from django.contrib.auth.decorators import login_required
 
+#ログイン
+def Login(request):
+    # POST
+    if request.method == 'POST':
+        # フォーム入力のユーザーID・パスワード取得
+        ID = request.POST.get('userid')
+        Pass = request.POST.get('password')
+
+        # Djangoの認証機能
+        user = authenticate(username=ID, password=Pass)
+
+        # ユーザー認証
+        if user:
+            #ユーザーアクティベート判定
+            if user.is_active:
+                # ログイン
+                login(request,user)
+                # ホームページ遷移
+                return HttpResponseRedirect(reverse('home'))
+            else:
+                # アカウント利用不可
+                return HttpResponse("アカウントが有効ではありません")
+        # ユーザー認証失敗
+        else:
+            return HttpResponse("ログインIDまたはパスワードが間違っています")
+    # GET
+    else:
+        return render(request, 'App_Folder_HTML/login.html')
+
+
+#ログアウト
+@login_required
+def Logout(request):
+    logout(request)
+    # ログイン画面遷移
+    return HttpResponseRedirect(reverse('Login'))
+
+
+#ホーム
+@login_required
+def home(request):
+    params = {"UserID":request.user,}
+    return render(request, "App_Folder_HTML/home.html",context=params)
+
+
+#新規登録
 class  AccountRegistration(TemplateView):
 
     def __init__(self):
@@ -14,19 +63,19 @@ class  AccountRegistration(TemplateView):
         "add_account_form":AddAccountForm(),
         }
 
-    # Get処理
+    #Get処理
     def get(self,request):
         self.params["account_form"] = AccountForm()
         self.params["add_account_form"] = AddAccountForm()
         self.params["AccountCreate"] = False
         return render(request,"App_Folder_HTML/register.html",context=self.params)
 
-    # Post処理
+    #Post処理
     def post(self,request):
         self.params["account_form"] = AccountForm(data=request.POST)
         self.params["add_account_form"] = AddAccountForm(data=request.POST)
 
-        # フォーム入力の有効検証
+        #フォーム入力の有効検証
         if self.params["account_form"].is_valid() and self.params["add_account_form"].is_valid():
             # アカウント情報をDB保存
             account = self.params["account_form"].save()

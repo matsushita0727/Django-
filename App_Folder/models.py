@@ -14,4 +14,4 @@ class Account(models.Model):
     account_image = models.ImageField(upload_to="profile_pics",blank=True)
 
     def __str__(self):
-        return self.user.userna
+        return self.user.username
