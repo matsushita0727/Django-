@@ -1,5 +1,6 @@
 from django.db import models
 
+
 # Create your models here.
 class customer(models.Model):
     
@@ -12,10 +13,10 @@ class customer(models.Model):
     
 class menu_list(models.Model):
     
-    menu_name = models.CharField(max_length=50)
-    menu_kakaku = models.IntegerField('価格')
+    name = models.CharField('メニュー名', max_length=100)
+    count = models.IntegerField('価格')
     
     def __str__(self):
         
-        return self.menu_name
+        return self.name
     
