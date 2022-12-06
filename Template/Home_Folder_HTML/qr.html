@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+
+  <body>
+    <h1>QRコード発行</h1>
+
+    <div>
+      <ul>
+        {% for obj in object_list %}
+          <li>{{ obj.id }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    <p>{{ Message }}</p>
+
+    <!-- フォームを定義 -->
+    <form action="{% url 'qr' %}" method="POST">
+    {{ form.as_p }}
+    {% csrf_token %}
+    <input type="submit" value="登録">
+    </form>
+    <a href="{% url 'createQr' %}">QR</a>
+    <a href="{% url 'home' %}">ホーム画面</a>
+  </body>
+</html>
