@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'invoice',
     "Customer.apps.CustomerConfig",
     "App_Folder.apps.AppFolderConfig",
+    "stock.apps.StockConfig",
 ]
 
 MIDDLEWARE = [
