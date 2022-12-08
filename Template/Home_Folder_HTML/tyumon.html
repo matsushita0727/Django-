@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ja" dir="ltr">
+<head>
+<meta charset="utf-8">
+<title></title>
+<link rel="stylesheet" href='{% static "App_Folder_css/style.css" %}'/>
+
+</head>
+<body>
+ <h1><font color="red">注文管理画面</font></h1>
+
+
+ <p> ホームへ
+    <a href="{% url 'home' %}">こちら</a>
+   </p>
+  <p> ログアウトは
+   <a href="{% url 'Logout' %}">こちら</a>
+  </p>
+</body>
+</html>
