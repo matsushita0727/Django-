@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'invoice',
     "App_Folder.apps.AppFolderConfig",
     "stock.apps.StockConfig",
+    "Home_Folder"
 ]
 
 MIDDLEWARE = [
@@ -79,6 +80,9 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+            ],
+            'builtins':[
+                'bootstrap4.templatetags.bootstrap4',# ここに追加！
             ],
         },
     },
@@ -166,3 +170,5 @@ STATIC_DIR,
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+
