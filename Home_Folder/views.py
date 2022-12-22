@@ -6,8 +6,11 @@ import qrcode   # pip install qrcode, pillow
 import base64
 from io import BytesIO
 from . import forms
+from .forms import qrNumber
 from django.views.generic import TemplateView
 from .models import QrUrl
+from django.shortcuts import render, get_object_or_404
+from django.shortcuts import redirect
 # Create your views here.
 
 
@@ -40,25 +43,48 @@ class FormView(TemplateView):
         return render(request, "Home_Folder_HTML/qr.html",context=self.params)
 
 
-def table(request):
-    ctx = {}
-    qr = QrUrl.objects.all()
-    ctx["object_list"] = qr
-    return render(request, "Home_Folder_HTML/qr.html", ctx)
+
+
 class createQrView(TemplateView):
-    def __init__(self):
-        self.params = {"Message":"情報を入力してください。",
-                        "form":forms.qrNumber(),
-        }
-    def get(self,request):
-        #qrnumber = QrUrl.objects.get(tableNumber=1)
-        id = QrUrl.objects.get(pk=1)
-        img = qrcode.make("https://127.0.0.1:8000/"+"&"+str(id))
-        buffer = BytesIO()
-        img.save(buffer, format="PNG")
-        qr = base64.b64encode(buffer.getvalue()).decode().replace("'", "")
-        param = { 'qr': qr}
-        return render(request,'Home_Folder_HTML/creteQr.html',param)
+    def get(form2,request):
+        form2 =forms.qrNumber()
+        ctx = {}
+        ctx["form2"] = form2
+        return render(request, "Home_Folder_HTML/creteQr.html",ctx)
+    def post(form2,request,):
+        form2 = forms.qrNumber(request.POST or None)
+        if request.method == "POST" and form2.is_valid():
+            idf = form2.cleaned_data["number"]
+            try:
+                id = QrUrl.objects.get(pk=idf)
+            except QrUrl.DoesNotExist:
+                return False
+            table = QrUrl.objects.values_list('tableNumber',flat=True).get(pk=idf)
+            img = qrcode.make("https://127.0.0.1:8000"+"?"+str(id)+"&"+str(table))
+            buffer = BytesIO()
+            img.save(buffer, format="PNG")
+            qr = base64.b64encode(buffer.getvalue()).decode().replace("'", "")
+            param = { 'qr': qr}
+        return render(request,'Home_Folder_HTML/hakouQr.html',param)
+
+
+def nippoListView(request):
+    template_name = "Home_Folder_HTML/qritiran.html"
+    ctx = {}
+    qs = QrUrl.objects.all()
+    ctx["object_list"] = qs
+
+    return render(request, template_name, ctx)
+
+
+def nippoDeleteView(request, id):
+    template_name = "Home_Folder_HTML/qrdelete.html"
+    obj = get_object_or_404(QrUrl, pk=id)
+    ctx = {"object": obj}
+    if request.POST:
+        obj.delete()
+        return redirect("home")
+    return render(request, template_name, ctx)
 
 def kaikei(request):
     return render(request,'Home_Folder_HTML/kaikei.html')

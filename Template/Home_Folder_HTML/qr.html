@@ -6,24 +6,17 @@
   </head>
 
   <body>
-    <h1>QRコード発行</h1>
-
-    <div>
-      <ul>
-        {% for obj in object_list %}
-          <li>{{ obj.id }}</li>
-        {% endfor %}
-      </ul>
-    </div>
+    <h1>QRコード登録</h1>
     <p>{{ Message }}</p>
 
     <!-- フォームを定義 -->
     <form action="{% url 'qr' %}" method="POST">
-    {{ form.as_p }}
-    {% csrf_token %}
-    <input type="submit" value="登録">
+      {{ form.as_p }}
+      {% csrf_token %}
+      <input type="submit" value="登録">
     </form>
-    <a href="{% url 'createQr' %}">QR</a>
+
+    <a href="{% url 'createQr' %}">QRコード生成</a>
     <a href="{% url 'home' %}">ホーム画面</a>
   </body>
 </html>
