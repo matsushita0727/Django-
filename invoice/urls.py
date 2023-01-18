@@ -8,7 +8,9 @@ urlpatterns = [
     path('', views.InvoiceFilterView.as_view(), name='index'),
     path('detail/<int:pk>/', views.InvoiceDetailView.as_view(), name='detail'),
     path('create/', views.InvoiceCreateView.as_view(), name='create'),
+    path('create2/', views.InvoiceCreateView2.as_view(), name='create2'),
     path('update/<int:pk>/', views.InvoiceUpdateView.as_view(), name='update'),
+    path('update2/<int:pk>/', views.InvoiceUpdateView2.as_view(), name='update2'),
     path('delete/<int:pk>/', views.InvoiceDeleteView.as_view(), name='delete'),
 ]
 

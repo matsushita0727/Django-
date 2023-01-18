@@ -137,11 +137,24 @@ class InvoiceCreateView(InvoiceMixin, FormsetMixin, CreateView):
     model = Invoice
     form_class = InvoiceForm
     formset_class = InvoiceDetailFormSet
+    
+class InvoiceCreateView2(InvoiceMixin, FormsetMixin, CreateView):
+    template_name = 'invoice/invoice_form2.html'
+    model = Invoice
+    form_class = InvoiceForm
+    formset_class = InvoiceDetailFormSet
 
 
 class InvoiceUpdateView(InvoiceMixin, FormsetMixin, UpdateView):
     is_update_view = True
-    template_name = 'invoice/invoice_form.html'
+    template_name = 'invoice/invoice_add.html'
+    model = Invoice
+    form_class = InvoiceForm
+    formset_class = InvoiceDetailFormSet
+    
+class InvoiceUpdateView2(InvoiceMixin, FormsetMixin, UpdateView):
+    is_update_view = True
+    template_name = 'invoice/invoice_form2.html'
     model = Invoice
     form_class = InvoiceForm
     formset_class = InvoiceDetailFormSet
