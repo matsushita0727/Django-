@@ -1,9 +1,8 @@
-from filters import django_filters
+#from django_filters import filters
 
-class stock(django_filters.FilterSet):
-    class Meta:
-        model= object
-        fields=[
-            "モデルフィールド1"
-            "モデルフィールド2"
-        ]
+#    class Meta:
+#        model= object
+#        fields=[
+#            "モデルフィールド1"
+#            "モデルフィールド2"
+#        ]

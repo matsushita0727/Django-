@@ -10,6 +10,6 @@ class TestProxy(stock):
 @admin.register(stock)
 class TestAdmin(admin.ModelAdmin):
     ordering = ['category']
-    list_display = ['category', 'item_name', 'inventory']
+    list_display = ['category', 'item_name', 'inventory','created_at']
     list_filter = ["category"]
     search_fields = ['item_name']

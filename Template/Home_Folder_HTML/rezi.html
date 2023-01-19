@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ja" dir="ltr">
+<head>
+<meta charset="utf-8">
+<title>レジ</title>
+<link href="rezi.css" rel="stylesheet">
+
+
+</head>
+<body>
+<p>
+<h1>お支払い</h1>
+<input type="submit" class="btn" value="番号選択へ戻る">
+</p>
+<div class="b">
+<font size="2">小計</font><font size="7">￥{{ object.total_amount }}</font><font size="2">内消費税￥{{ object.tax }}</font>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<font size="2">お預かり金額</font><input type="text" id="display" name="display" value="" disabled>
+</div>
+<hr size="3" color="black">
+<div class="contents">
+    <div class="main">
+        <input type="submit" class="btn2" value="現金">
+    </div>
+    <br>
+    <div class = "main">
+        <input type="submit" class="btn2" value="クレジットカード">
+    </div>
+
+
+      <div class = "count1">
+      <input type="submit" id="btn3" value="7" onClick="get_calc(7)">
+      <input type="submit" id="btn3" value="8" onClick="get_calc(8)">
+      <input type="submit" id="btn3" value="9" onClick="get_calc(9)">
+      <input type="submit" id="btn3" value="C" onClick="get_calc('C')">
+    </div>
+    <div class = "count2">
+      <input type="submit" id="btn3" value="4" onClick="get_calc(4)">
+      <input type="submit" id="btn3" value="5" onClick="get_calc(5)">
+      <input type="submit" id="btn3" value="6" onClick="get_calc(6)">
+    </div>
+      <input type="submit" id="btn3" value="1" onClick="get_calc(1)">
+      <input type="submit" id="btn3" value="2" onClick="get_calc(2)">
+      <input type="submit" id="btn3" value="3" onClick="get_calc(3)">
+      <div class = "count3">
+      <input type="submit" id="btn3" value="0" onClick="get_calc(0)">
+      <input type="submit" id="btn3" value="00" onClick="get_calc(00)">
+      <input type="submit" id="btn3" value="万" onClick="get_calc(0000)">
+    </div>
+    </div>
+  <hr size="3" color="black" width="100%">
+<a class = "oturi">おつり</a>
+    <a class = "c">￥{{ count }}</a>
+    <input type="submit" id="goal" value="会計する" onClick="get_calc('=')">
+</div>
+</body>
+</html>

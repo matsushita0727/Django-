@@ -1,0 +1,11 @@
+{% block content %}
+<div>
+    <ul>
+      {% for obj in object_list %}
+      <li>
+        <a href="{% url 'qrdelete' id=obj.tableNumber %}" class="btnn">{{ obj.tableNumber }}</a>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+{% endblock %}

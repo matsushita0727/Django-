@@ -55,7 +55,8 @@ INSTALLED_APPS = [
     "Customer.apps.CustomerConfig",
     "App_Folder.apps.AppFolderConfig",
     "stock.apps.StockConfig",
-    "django_filters",
+    'mathfilters',
+    'Home_Folder',
 ]
 
 MIDDLEWARE = [
@@ -170,3 +171,6 @@ STATIC_DIR,
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 
+REST_FRAMEWORK = {
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
+}

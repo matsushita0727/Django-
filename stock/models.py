@@ -11,7 +11,13 @@ class stock(models.Model):
     inventory = models.PositiveIntegerField('在庫数', null=True, blank=True)
 
     #DateField設定
-    created_at = models.DateField(auto_now_add=True)
+    created_at = models.DateField('作成日',auto_now_add=True)
+
+    class Meta:
+        
+        verbose_name_plural = '在庫'
+
+
     def __str__(self):
         return self.category
 
