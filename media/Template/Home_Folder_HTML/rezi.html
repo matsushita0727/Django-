@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+{% extends "Home_Folder_HTML/base.html" %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href='{% static "Home_Folder_css/rezi.css" %}'>
+<script src='{% static "js/rezi.js" %}'></script>
+<body>
+<h2>お支払い</h2>
+<a href="{% url 'reziList'  %}">  <input type="submit" value="番号選択へ戻る"></a>
+</p>
+<div class="b">
+
+<font size="5">小計</font><font size="5">￥<span id="total_amount" value=""  >{{ object.total_amount }}</span>
+</font><font size="3">内消費税￥{{ object.tax }} 
+</font>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<font size="5">お預かり金額</font><font size="5">￥<input readonly id="result" type="text"  name="input2" value=" "></font>
+</div>
+<hr size="3" color="black">
+<div class="contents">
+
+    </div>
+    <div>
+      <button onclick="num_click(this.innerHTML)">7</button>
+      <button onclick="num_click(this.innerHTML)">8</button>
+      <button onclick="num_click(this.innerHTML)">9</button>
+      <button onclick="c_click()">C</button>
+    </div>
+    <div>
+      <button onclick="num_click(this.innerHTML)">4</button>
+      <button onclick="num_click(this.innerHTML)">5</button>
+      <button onclick="num_click(this.innerHTML)">6</button>
+    </div>
+    <div>
+      <button onclick="num_click(this.innerHTML)">1</button>
+      <button onclick="num_click(this.innerHTML)">2</button>
+      <button onclick="num_click(this.innerHTML)">3</button>
+    </div>
+    <div>
+      <button onclick="num_click(this.innerHTML)">0</button>
+      <button onclick="num_click(this.innerHTML)">00</button>
+      <button onclick="num_click(this.innerHTML)">0000</button>
+    </div>
+    </div>
+  <hr size="3" color="black" width="100%">
+    <a class = "oturi" style = "font-size: 45px;">おつり</a>
+
+    <a class = "c">￥ <input type="text"  class = "oturitext" name="change" value="" readonly></a>
+    <button class = "goal" onclick="calc()">会計する</button>
+</div>
+</body>
+<script>
+
+
+
+</script>
+{% endblock %}

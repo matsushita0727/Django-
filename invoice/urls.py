@@ -5,13 +5,15 @@ from invoice import views
 
 
 urlpatterns = [
-    path('', views.InvoiceFilterView.as_view(), name='index'),
+    path('itiran', views.InvoiceFilterView.as_view(), name='index'),
     path('detail/<int:pk>/', views.InvoiceDetailView.as_view(), name='detail'),
+     path('detail2/<int:pk>/', views.InvoiceDetailView2.as_view(), name='detail2'),
     path('create/', views.InvoiceCreateView.as_view(), name='create'),
     path('create2/', views.InvoiceCreateView2.as_view(), name='create2'),
     path('update/<int:pk>/', views.InvoiceUpdateView.as_view(), name='update'),
     path('update2/<int:pk>/', views.InvoiceUpdateView2.as_view(), name='update2'),
     path('delete/<int:pk>/', views.InvoiceDeleteView.as_view(), name='delete'),
+    path('invoice_kaikei',views.invoiceK,name="invoice_kaikei"),
 ]
 
 ## クラスベースビューの場合

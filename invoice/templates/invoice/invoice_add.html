@@ -27,7 +27,7 @@
                             {% for form in formset %}
                                 <tr>
                                     <td class="align-middle rownum"></td>
-                                    <td>
+                                    <td class="disabled">
                                         {% bootstrap_field form.id show_label=False %}
                                         {% bootstrap_field form.item show_label=False %}
                                         {% bootstrap_field form.quantity show_label=False %}
@@ -38,10 +38,11 @@
                             </tbody>
                         </table>
                     </div>
-                    <a href="#" class="btn btn-outline-secondary add-invoicedetail col-12">行を追加</a>
+                    <a href="#" class="btn btn-outline-secondary add-invoicedetail col-12">注文の追加する</a>
                 </form>
                 <div class="float-right mt-3 mb-3">
                     
+                    <a class="btn btn-outline-secondary command save" href="{% url 'detail' invoice.pk %}">履歴</a>
                     <a class="btn btn-outline-secondary command save" href="#">登録</a>
 
                     </form>

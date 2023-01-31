@@ -28,9 +28,8 @@
                 </div>
 
                 <div class="mt-1">
-                    <a class="btn btn-secondary filtered" style="visibility:hidden" href="/?page=1">検索を解除</a>
+                    <a class="btn btn-secondary filtered" style="visibility:hidden" href="/itiran?page=1">検索を解除</a>
                     <div class="float-right">
-                        <a class="btn btn-outline-secondary command" href="{% url 'create' %}">新規</a>
                         <a class="btn btn-outline-secondary command" data-toggle="modal" data-target="#myModal"
                            href="#">検索</a>
                     </div>
@@ -70,7 +69,7 @@
                                 <div class="col-12">
                                     <div class="float-right">
                                         <a class="btn btn-outline-secondary"
-                                           href="{% url 'detail' invoice.pk %}">詳細表示</a>
+                                           href="{% url 'detail2' invoice.pk %}">詳細表示</a>
                                     </div>
                                 </div>
                             </div>
@@ -82,7 +81,7 @@
                     {% endfor %}
                 </ul>
                 <div class="mt-1 float-right">
-                    <a class="btn btn-outline-secondary command" href="{% url 'create' %}">新規</a>
+
                     <a class="btn btn-outline-secondary command" data-toggle="modal" data-target="#myModal"
                        href="#">検索</a>
                 </div>

@@ -15,9 +15,32 @@
                 </div>
                 <div class="float-right mt-1 mb-1">
                     <a class="btn btn-outline-secondary command" href="{% url 'update' invoice.pk %}">追加</a>
-
+                </div>
+                <div class="float-right mt-1 mb-1">
+                    <a class="btn btn-outline-secondary command" onClick="disp()">会計</a>
                 </div>
             </div>
         </div>
     </div>
+    <script type="text/javascript">
+        <!--
+        
+        function disp(){
+        
+            // 「OK」時の処理開始 ＋ 確認ダイアログの表示
+            if(window.confirm('本当に会計されますか？')){
+        
+                location.href ="{% url 'invoice_kaikei' %}"; // example_confirm.html へジャンプ
+        
+            }
+            // 「OK」時の処理終了
+            // 「キャンセル」時の処理開始
+            else{
+            }
+            // 「キャンセル」時の処理終了
+        
+        }
+        
+        // -->
+        </script>
 {% endblock %}

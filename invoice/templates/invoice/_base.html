@@ -11,7 +11,7 @@
     <title>注文アプリ</title>
     {# Load CSS and JavaScript #}
     {% bootstrap_css %}
-    <link href="{% static "invoice/css/invoice.css" %}" rel="stylesheet">
+    <link href='{% static "invoice/css/invoice.css" %}'' rel="stylesheet">
 </head>
 
 <body>
@@ -20,23 +20,9 @@
         {% if request.user.is_authenticated %}
             {{ request.user.get_full_name }}
         {% endif %}</a>
-    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#Navber" aria-controls="Navber"
-            aria-expanded="false"
-            aria-label="ナビゲーションの切替">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+    
 
-    <div class="collapse navbar-collapse" id="Navber">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'admin:index' %}">管理画面</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'admin:logout' %}">ログアウト</a>
-            </li>
-        </ul>
-    </div>
-    <!-- /.navbar-collapse -->
+    
 </nav>
 {% block content %}
 {% endblock %}

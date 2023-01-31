@@ -11,14 +11,14 @@
                     {% csrf_token %}
                     <div class="clearfix">
                         <div class="float-right">
-                            <a class="btn btn-outline-secondary command" href="{% url 'detail' invoice.pk %}">戻る</a>
+                            <a class="btn btn-outline-secondary command" href="{% url 'detail2' invoice.pk %}">戻る</a>
                             <a class="btn btn-outline-secondary command save" href="#">削除</a>
                         </div>
                     </div>
                     {% include "./invoice_detail_content.html" %}
                     <div class="clearfix">
                         <div class="float-right">
-                            <a class="btn btn-outline-secondary command" href="{% url 'detail' invoice.pk %}">戻る</a>
+                            <a class="btn btn-outline-secondary command" href="{% url 'detail2' invoice.pk %}">戻る</a>
                             <a class="btn btn-outline-secondary command save" href="#">削除</a>
                         </div>
                     </div>

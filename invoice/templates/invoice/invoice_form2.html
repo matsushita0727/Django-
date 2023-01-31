@@ -10,11 +10,11 @@
                 <div class="clearfix">
                     <div class="float-right mt-3 mb-3">
                         {% if object %}
-                            <a class="btn btn-outline-secondary command" href="{% url 'detail' invoice.pk %}">戻る</a>
+                            <a class="btn btn-outline-secondary command" href="{% url 'detail2' invoice.pk %}">戻る</a>
                         {% else %}
                             <a class="btn btn-outline-secondary command" href="{% url 'index' %}">戻る</a>
                         {% endif %}
-                        <a class="btn btn-outline-secondary command save" href="#">登録</a>
+                        <a class="btn btn-outline-secondary command save" href="{% url 'detail2' invoice.pk %}">登録</a>
                     </div>
                 </div>
                 <div>
@@ -45,11 +45,11 @@
                 </form>
                 <div class="float-right mt-3 mb-3">
                     {% if object %}
-                        <a class="btn btn-outline-secondary command" href="{% url 'detail' invoice.pk %}">戻る</a>
+                        <a class="btn btn-outline-secondary command" href="{% url 'detail2' invoice.pk %}">戻る</a>
                     {% else %}
                         <a class="btn btn-outline-secondary command" href="{% url 'index' %}">戻る</a>
                     {% endif %}
-                    <a class="btn btn-outline-secondary command save" href="#">登録</a>
+                    <a class="btn btn-outline-secondary command save" href="{% url 'detail2' invoice.pk %}">登録</a>
 
                     </form>
                 </div>

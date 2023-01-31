@@ -1,0 +1,19 @@
+{% block title %}レジ一覧{% endblock %}
+
+{% block content %}
+<div>
+    <ul>
+      {% for obj in object_list reversed %}
+        <li>
+            
+            <a href="{% url 'rezi' pk=obj.pk %}" class="btnn">
+                {{ obj.created_at}}
+                {{ obj.customer}}
+
+            </a>
+        </li> 
+        
+      {% endfor %}
+    </ul>
+  </div>
+{% endblock %}
