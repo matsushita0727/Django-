@@ -3,7 +3,7 @@
 {% block content %}
 <div>
     <ul>
-      {% for obj in object_list %}
+      {% for obj in object_list reversed %}
         <li>
             
             <a href="{% url 'rezi' pk=obj.pk %}" class="btnn">

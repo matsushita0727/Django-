@@ -7,11 +7,10 @@ from . import graph
 
 # Create your views here.
 
-#from .filters import 作成したフィルター
+'''from .filters import 作成したフィルター
 
-'''class obj(ListView):
+class obj(ListView):
     ...
-
     def get_context_data(self, *args, **kwargs):
         ctx = super().get_context_data(*args, **kwargs)
         ctx["filter"] = 作成したフィルター(self.request.GET, queryset=self.get_queryset())

@@ -12,7 +12,6 @@ from .models import QrUrl
 from invoice.models import Invoice
 from django.shortcuts import render, get_object_or_404
 from django.shortcuts import redirect
-
 # Create your views here.
 
 
@@ -108,6 +107,9 @@ def rezi(request,pk):
     obj = get_object_or_404(Invoice, pk=pk)
     ctx = {"object": obj}
     return render(request, template_name,ctx)
+
+def kaikei(request):
+    return render(request,'Home_Folder_HTML/kaikei.html')
 
 def home(request):
     return render(request, 'App_Folder_HTML/home.html')

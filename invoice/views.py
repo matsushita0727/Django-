@@ -105,7 +105,7 @@ class InvoiceMixin(object): #新規登録・更新処理
         return redirect(invoice.get_absolute_url())
 
 
-class InvoiceFilterView(LoginRequiredMixin, PaginationMixin, FilterView):
+class InvoiceFilterView(PaginationMixin, FilterView):
     model = Invoice
     filterset_class = InvoiceFilter
     # デフォルトの並び順を新しい順とする
@@ -128,25 +128,38 @@ class InvoiceFilterView(LoginRequiredMixin, PaginationMixin, FilterView):
         return super().get(request, **kwargs)
 
 
-class InvoiceDetailView(LoginRequiredMixin, DetailView):
+class InvoiceDetailView(DetailView):
     model = Invoice
 
 
-class InvoiceCreateView(LoginRequiredMixin, InvoiceMixin, FormsetMixin, CreateView):
+class InvoiceCreateView(InvoiceMixin, FormsetMixin, CreateView):
     template_name = 'invoice/invoice_form.html'
+    model = Invoice
+    form_class = InvoiceForm
+    formset_class = InvoiceDetailFormSet
+    
+class InvoiceCreateView2(InvoiceMixin, FormsetMixin, CreateView):
+    template_name = 'invoice/invoice_form2.html'
     model = Invoice
     form_class = InvoiceForm
     formset_class = InvoiceDetailFormSet
 
 
-class InvoiceUpdateView(LoginRequiredMixin, InvoiceMixin, FormsetMixin, UpdateView):
+class InvoiceUpdateView(InvoiceMixin, FormsetMixin, UpdateView):
     is_update_view = True
-    template_name = 'invoice/invoice_form.html'
+    template_name = 'invoice/invoice_add.html'
+    model = Invoice
+    form_class = InvoiceForm
+    formset_class = InvoiceDetailFormSet
+    
+class InvoiceUpdateView2(InvoiceMixin, FormsetMixin, UpdateView):
+    is_update_view = True
+    template_name = 'invoice/invoice_form2.html'
     model = Invoice
     form_class = InvoiceForm
     formset_class = InvoiceDetailFormSet
 
 
-class InvoiceDeleteView(LoginRequiredMixin, DeleteView):
+class InvoiceDeleteView(DeleteView):
     model = Invoice
     success_url = reverse_lazy('index')

@@ -52,13 +52,11 @@ INSTALLED_APPS = [
     'pure_pagination',
     'bootstrap4',
     'invoice',
-    "Customer.apps.CustomerConfig",
     "App_Folder.apps.AppFolderConfig",
     "stock.apps.StockConfig",
     'mathfilters',
     'Home_Folder',
 ]
-
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
@@ -82,6 +80,9 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+            ],
+            'builtins':[
+                'bootstrap4.templatetags.bootstrap4',# ここに追加！
             ],
         },
     },

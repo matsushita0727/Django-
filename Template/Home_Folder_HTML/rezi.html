@@ -1,56 +1,55 @@
 <!DOCTYPE html>
+{% extends "Home_Folder_HTML/base.html" %}
 {% load static %}
-<html lang="ja" dir="ltr">
-<head>
-<meta charset="utf-8">
-<title>レジ</title>
-<link href="rezi.css" rel="stylesheet">
-
-
-</head>
+{% block content %}
+<link rel="stylesheet" href='{% static "Home_Folder_css/rezi.css" %}'>
+<script src='{% static "js/rezi.js" %}'></script>
 <body>
-<p>
-<h1>お支払い</h1>
-<input type="submit" class="btn" value="番号選択へ戻る">
+<h2>お支払い</h2>
+<a href="{% url 'reziList'  %}">  <input type="submit" value="番号選択へ戻る"></a>
 </p>
 <div class="b">
-<font size="2">小計</font><font size="7">￥{{ object.total_amount }}</font><font size="2">内消費税￥{{ object.tax }}</font>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<font size="2">お預かり金額</font><input type="text" id="display" name="display" value="" disabled>
+
+<font size="5">小計</font><font size="5">￥<span id="total_amount" value=""  >{{ object.total_amount }}</span>
+</font><font size="3">内消費税￥{{ object.tax }} 
+</font>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<font size="5">お預かり金額</font><font size="5">￥<input readonly id="result" type="text"  name="input2" value=" "></font>
 </div>
 <hr size="3" color="black">
 <div class="contents">
-    <div class="main">
-        <input type="submit" class="btn2" value="現金">
-    </div>
-    <br>
-    <div class = "main">
-        <input type="submit" class="btn2" value="クレジットカード">
-    </div>
 
-
-      <div class = "count1">
-      <input type="submit" id="btn3" value="7" onClick="get_calc(7)">
-      <input type="submit" id="btn3" value="8" onClick="get_calc(8)">
-      <input type="submit" id="btn3" value="9" onClick="get_calc(9)">
-      <input type="submit" id="btn3" value="C" onClick="get_calc('C')">
     </div>
-    <div class = "count2">
-      <input type="submit" id="btn3" value="4" onClick="get_calc(4)">
-      <input type="submit" id="btn3" value="5" onClick="get_calc(5)">
-      <input type="submit" id="btn3" value="6" onClick="get_calc(6)">
+    <div>
+      <button onclick="num_click(this.innerHTML)">7</button>
+      <button onclick="num_click(this.innerHTML)">8</button>
+      <button onclick="num_click(this.innerHTML)">9</button>
+      <button onclick="c_click()">C</button>
     </div>
-      <input type="submit" id="btn3" value="1" onClick="get_calc(1)">
-      <input type="submit" id="btn3" value="2" onClick="get_calc(2)">
-      <input type="submit" id="btn3" value="3" onClick="get_calc(3)">
-      <div class = "count3">
-      <input type="submit" id="btn3" value="0" onClick="get_calc(0)">
-      <input type="submit" id="btn3" value="00" onClick="get_calc(00)">
-      <input type="submit" id="btn3" value="万" onClick="get_calc(0000)">
+    <div>
+      <button onclick="num_click(this.innerHTML)">4</button>
+      <button onclick="num_click(this.innerHTML)">5</button>
+      <button onclick="num_click(this.innerHTML)">6</button>
+    </div>
+    <div>
+      <button onclick="num_click(this.innerHTML)">1</button>
+      <button onclick="num_click(this.innerHTML)">2</button>
+      <button onclick="num_click(this.innerHTML)">3</button>
+    </div>
+    <div>
+      <button onclick="num_click(this.innerHTML)">0</button>
+      <button onclick="num_click(this.innerHTML)">00</button>
+      <button onclick="num_click(this.innerHTML)">0000</button>
     </div>
     </div>
   <hr size="3" color="black" width="100%">
-<a class = "oturi">おつり</a>
-    <a class = "c">￥{{ count }}</a>
-    <input type="submit" id="goal" value="会計する" onClick="get_calc('=')">
+    <a class = "oturi" style = "font-size: 45px;">おつり</a>
+
+    <a class = "c">￥ <input type="text"  class = "oturitext" name="change" value="" readonly></a>
+    <button class = "goal" onclick="calc()">会計する</button>
 </div>
 </body>
-</html>
+<script>
+
+
+
+</script>
+{% endblock %}

@@ -4,9 +4,8 @@ from . import views
 
 
 urlpatterns = [
-#    path('', views.customer, name='customer'),
-#    path('kakunin', views.kakunin, name='kakunin'),
-#    path('menu', views.menu, name='menu'),
-#    path('list', views.menuList.as_view(), name='list'),
-#    path('',views.Index.as_view(),name='Index'),
+    #path('', views.customer, name='customer'),
+    #path('kakunin', views.kakunin, name='kakunin'),
+    #path('menu', views.menu, name='menu'),
+    #path('list', views.menuList.as_view(), name='list'),
 ]

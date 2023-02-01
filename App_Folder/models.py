@@ -15,3 +15,7 @@ class Account(models.Model):
 
     def __str__(self):
         return self.user.username
+    
+    class Meta:
+        verbose_name = "アカウント"
+        verbose_name_plural = "アカウント"
