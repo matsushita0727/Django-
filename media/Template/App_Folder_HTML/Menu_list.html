@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+{% load static %}
+
+{% block content_block %}
+
+<h2>メニュー一覧</h2>
+<table class="table">
+  <thead>
+    <tr><th>メニュー名</th></tr>
+  </thead>
+  
+  <tbody>
+    {% for menu in menu_list %}
+    <tr><td>{{ menu.name }}</td></tr>
+    <tr><td>{{ menu.count }} 円</td></tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<p>
+    <a href="{% url 'menu' %}">戻る</a>
+</p>
+
+{% endblock %}

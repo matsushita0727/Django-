@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ja" dir="ltr">
+<head>
+<meta charset="utf-8">
+<title></title>
+<link rel="stylesheet" href='{% static "App_Folder_css/style.css" %}'/>
+
+</head>
+<body>
+ <p>
+<a href="{% url 'paypay' %}" class="btnn">paypay</a>
+</p><p>
+ 
+ </p>
+  <p> ログアウトは
+   <a href="{% url 'Logout' %}">こちら</a>
+  </p>
+</body>
+</html>

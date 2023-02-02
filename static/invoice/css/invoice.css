@@ -1,0 +1,100 @@
+a.command {
+    width: 5em;
+}
+
+table {
+    counter-reset: number 0;
+}
+
+table td.rownum:before {
+    counter-increment: number 1;
+    content: counter(number) " ";
+}
+
+table td.number {
+    text-align: right;
+}
+
+table th {
+    text-align: center;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+header {
+    padding: 30px 4% 10px;
+    position: fixed;
+    top: 33px;
+    width: 100%;
+    background-color: rgb(201, 201, 201);
+    display: flex;
+    align-items: center;
+}
+h1 {
+    margin: 0; padding: 0;
+    font-size: 20px;
+}
+a {
+    text-decoration: none;
+    color: #000000;
+}
+nav {
+    margin: 0 0 0 auto;
+}
+ul {
+    list-style: none;
+    margin: 0;
+    display: flex;
+}
+li {
+    margin: 0 0 0 15px;
+    font-size: 14px;
+}
+
+footer {
+border-top: solid 1px rgb(255, 255, 255);
+padding-bottom: 10px;
+}
+
+#footer ul {
+text-align: center;
+}
+
+#footer ul li {
+    padding: 0 4px;
+    display: inline;
+}
+
+#footer p {
+    text-align: center;
+}
+
+footer{
+    background-color: rgb(201, 201, 201);
+
+}
+footer{
+    position: absolute;/*←絶対位置*/
+    bottom: 0; /*下に固定*/
+    width: 100%;
+}
+
+P{
+    text-decoration: none;
+    color: #030303;
+}
+
+h2{
+    color: #000000
+}
+
+h2{
+    right: 100px;
+    left: 100px;
+
+}
+.disabled {
+    pointer-events: none;
+}

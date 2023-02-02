@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ja" dir="ltr">
+<head>
+<meta charset="utf-8">
+<title></title>
+<link rel="stylesheet" href='{% static "App_Folder_css/style.css" %}'/>
+
+</head>
+<body>
+ <h1><font color="red">ホーム画面</font></h1>
+ <p>
+  <a href="{% url 'tyumon' %}" class="btnn">注文管理</a>
+</p><p>
+  <a href="{% url 'menyu' %}" class="btnn">メニュー画面</a>
+</p><p>
+  <a href="{% url 'zaiko' %}" class="btnn">在庫管理</a>
+</p><p>
+  <a href="{% url 'qr' %}" class="btnn">QR発行</a>
+</p><p>
+  <a href="{% url 'qritiran' %}" class="btnn">QR一覧</a>
+</p><p>
+  <a href="{% url 'reziList' %}", class="btnn">お会計</a>
+ </p>
+  <p> ログアウトは
+   <a href="{% url 'Logout' %}">こちら</a>
+  </p>
+</body>
+</html>

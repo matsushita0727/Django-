@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ja" dir="ltr">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href='{% static "Home_Folder_css/base.css" %}'>
+<title>システム</title>
+
+
+</head>
+<header>
+    <h1>
+        <a href="/">Dホールディングス</a>
+    </h1>
+    <nav class="pc-nav">
+        <ul>
+            <li><a href="{% url 'Logout' %}">LOGOUT</a></li>
+        </ul>
+    </nav>
+</header>
+<body>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    {% block content %}
+    <div>
+        {{ object }}
+    </div>
+    {% endblock %}
+
+</body>
+<footer id="footer">
+
+
+    <ul>
+    <li><a href="#"></a></li>
+    </ul>
+
+
+    <p>Copyright (C) Dholdings All Rights Reserved.</p>
+</footer>
+</html>

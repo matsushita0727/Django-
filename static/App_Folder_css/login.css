@@ -1,0 +1,35 @@
+h1{
+    text-align: center;
+  }
+
+  div.reg{
+    background-color: #EEEEEE;
+    margin-left: 15%;
+    margin-right: 15%;
+  }
+
+  .message{
+    text-align: right;
+    margin-right:20%;
+  }
+
+  table.reg_form{
+    width: 100%;
+    border-spacing: 10px 30px;
+    padding-left:20px;
+  }
+
+  .btn{
+    color: rgb(0, 0, 0);
+    border-radius : 50%;
+    background-color: #ffffff;
+    font-size: 1.0em;
+    padding: 10px 25px;
+    margin-left:45%;
+}
+
+  .btn:hover{
+    color: #fff;
+    background: #000099;
+  }
+ /*--ここから変更予定のボタン--*/

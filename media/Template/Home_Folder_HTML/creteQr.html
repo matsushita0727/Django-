@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+
+  <body>
+    <h1>QRコード発行</h1>
+    <p></p>
+
+    <!-- フォームを定義 -->
+    <form action="{% url 'createQr' %}" method="POST">
+      {{ form2.as_p }}
+      {% csrf_token %}
+      <input type="submit" value="登録">
+    </form>
+
+    <a href="{% url 'home' %}">ホーム画面</a>
+  </body>
+</html>
+

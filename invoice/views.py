@@ -12,6 +12,7 @@ from .filters import InvoiceFilter
 from .forms import InvoiceForm, InvoiceDetailFormSet
 from .models import Invoice
 from .models import InvoiceDetail
+from django.shortcuts import get_object_or_404, redirect, render
 
 
 class FormsetMixin(object): #inline-formsetsに対応する登録更新処理機能
@@ -131,6 +132,10 @@ class InvoiceFilterView(PaginationMixin, FilterView):
 class InvoiceDetailView(DetailView):
     model = Invoice
 
+class InvoiceDetailView2(DetailView):
+    template_name = 'invoice/invoice_detail2.html'
+    model = Invoice
+
 
 class InvoiceCreateView(InvoiceMixin, FormsetMixin, CreateView):
     template_name = 'invoice/invoice_form.html'
@@ -163,3 +168,6 @@ class InvoiceUpdateView2(InvoiceMixin, FormsetMixin, UpdateView):
 class InvoiceDeleteView(DeleteView):
     model = Invoice
     success_url = reverse_lazy('index')
+
+def invoiceK(request):
+    return render(request,'invoice/invoice_kaikei.html')
